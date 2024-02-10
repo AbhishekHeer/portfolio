@@ -33,10 +33,11 @@ class _ProjectsState extends State<Projects> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Container(
                           margin: EdgeInsets.only(
-                              left: Get.width * .05, top: Get.height * .06),
+                              left: Get.width * .07, top: Get.height * .06),
                           child: AutoSizeText(
                             'Chatt App',
                             style: GoogleFonts.poppins(
@@ -46,13 +47,29 @@ class _ProjectsState extends State<Projects> {
                       SizedBox(
                         width: Get.width * .4,
                         child: const AutoSizeText(
-                            'I created this personal project in order to show how to create an interface in Figma using a portfolio as an example.'),
+                            'I created this personal project in order to show how to create an interface in flutter using a portfolio as an example.'),
+                      ),
+                      SizedBox(width: 0.0, height: Get.height * .2),
+                      Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Container(
+                          child: const Text("ksljf"),
+                        ),
                       )
                     ],
                   ),
-                  const Image(
-                    image: AssetImage(''),
-                    fit: BoxFit.cover,
+                  Container(
+                    decoration: BoxDecoration(
+                      image: const DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage('Assets/Images/chat.jpg'),
+                      ),
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(Get.width * .02),
+                          bottomRight: Radius.circular(Get.width * .02)),
+                    ),
+                    height: Get.height,
+                    width: Get.width * .4,
                   ),
                 ],
               )),
