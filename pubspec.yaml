@@ -45,6 +45,7 @@ dependencies:
   url_launcher: ^6.2.4
   firebase_core: ^2.25.4
   firebase_database: ^10.4.5
+  font_awesome_flutter: ^10.7.0
 
 
 dev_dependencies:

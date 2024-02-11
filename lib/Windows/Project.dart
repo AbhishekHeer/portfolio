@@ -83,9 +83,6 @@ class _ProjectsState extends State<Projects> {
                                       BorderRadius.circular(Get.width * .04),
                                   border: Border.all(color: Colors.black)),
                               child: InkWell(
-                                onHover: (value) {
-                                  change_Color.changecolor(value);
-                                },
                                 onTap: () => DownloadController()
                                     .download(data[index]["link"].toString()),
                                 child: Center(

@@ -4,6 +4,7 @@ import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/Download/cv_download.dart';
+import 'package:portfolio/Windows/Footer/footer.dart';
 import 'package:portfolio/Windows/tabbar.dart';
 
 class HomeViewWindow extends StatefulWidget {
@@ -257,17 +258,6 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             Get.height * .04),
-                                                    // gradient:
-                                                    //     const LinearGradient(
-                                                    //   end:
-                                                    //       Alignment.centerRight,
-                                                    //   begin:
-                                                    //       Alignment.centerLeft,
-                                                    //   colors: [
-                                                    //     Colors.white,
-                                                    //     Colors.tealAccent
-                                                    //   ],
-                                                    // ),
                                                   ),
                                                   child: Center(
                                                     child: AutoSizeText(
@@ -309,7 +299,8 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                 ),
               ),
             ),
-            const Tabbars()
+            const Tabbars(),
+            const Footor(),
           ],
         ),
       ),
