@@ -44,6 +44,7 @@ dependencies:
   path_provider: ^2.1.2
   url_launcher: ^6.2.4
   firebase_core: ^2.25.4
+  firebase_database: ^10.4.5
 
 
 dev_dependencies:
@@ -71,6 +72,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - Assets/Images/
+    - Assets/Apps/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -44,6 +44,7 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
+    databaseURL: "https://portfolio-f54a5-default-rtdb.firebaseio.com/",
     apiKey: 'AIzaSyDF84lJKExuQ6IHGssXBQgyFR5Hz8PhVu8',
     appId: '1:835667605691:web:95fc26b1f15c9853f5d19e',
     messagingSenderId: '835667605691',
@@ -54,6 +55,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
+    databaseURL: "https://portfolio-f54a5-default-rtdb.firebaseio.com/",
     apiKey: 'AIzaSyDk6qMpOxHy_mDXdU0RFAwSAJUnvEICI0I',
     appId: '1:835667605691:android:8f725da89658c7c9f5d19e',
     messagingSenderId: '835667605691',
@@ -62,6 +64,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
+    databaseURL: "https://portfolio-f54a5-default-rtdb.firebaseio.com/",
     apiKey: 'AIzaSyDari9Lhqd4JDEcoT_01MEsAzdQAj9wkf8',
     appId: '1:835667605691:ios:365e4c61204d7e2cf5d19e',
     messagingSenderId: '835667605691',
@@ -71,6 +74,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
+    databaseURL: "https://portfolio-f54a5-default-rtdb.firebaseio.com/",
     apiKey: 'AIzaSyDari9Lhqd4JDEcoT_01MEsAzdQAj9wkf8',
     appId: '1:835667605691:ios:36f3f0d4580f78e5f5d19e',
     messagingSenderId: '835667605691',

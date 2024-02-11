@@ -1,10 +1,11 @@
-import 'package:url_launcher/url_launcher.dart';
+import 'dart:html' as html;
 
 class DownloadController {
   Future<void> DownloadForwindow() async {
-    const url =
-        "https://drive.google.com/file/d/1euzyuxEZlpfZZ0dHN8y8UCTUpEy8eeG1/view?usp=drive_link";
-    launchUrl(Uri.parse(url));
+    const url = "Aessts/Apps/Notes Leloo.apk";
+    html.AnchorElement anchorElement = html.AnchorElement(href: url);
+    anchorElement.download = "Notes Leloo.apk";
+    anchorElement.click();
   }
 
   void DownloadForMobile() {}
