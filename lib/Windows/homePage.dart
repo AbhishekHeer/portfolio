@@ -114,7 +114,8 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                               InkWell(
                                                 onTap: () =>
                                                     DownloadController()
-                                                        .DownloadForwindow(),
+                                                        .download(
+                                                            "Assets/CV/CV.pdf"),
                                                 child: Container(
                                                   width: Get.width * .15,
                                                   height: Get.height * .06,
@@ -153,7 +154,8 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                               ),
                                               InkWell(
                                                 onTap: () =>
-                                                    DownloadController().Hire(),
+                                                    DownloadController()
+                                                        .contact(),
                                                 child: Container(
                                                   width: Get.width * .15,
                                                   height: Get.height * .06,
@@ -202,7 +204,8 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                               InkWell(
                                                 onTap: () =>
                                                     DownloadController()
-                                                        .DownloadForMobile(),
+                                                        .download(
+                                                            "Assets/CV/CV.pdf"),
                                                 child: Container(
                                                   width: Get.width * .25,
                                                   height: Get.height * .06,
@@ -241,7 +244,8 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                               ),
                                               InkWell(
                                                 onTap: () =>
-                                                    DownloadController().Hire(),
+                                                    DownloadController()
+                                                        .contact(),
                                                 child: Container(
                                                   width: Get.width * .15,
                                                   height: Get.height * .06,

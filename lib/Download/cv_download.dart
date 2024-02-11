@@ -1,14 +1,11 @@
 import 'dart:html' as html;
 
 class DownloadController {
-  Future<void> DownloadForwindow() async {
-    const url = "Aessts/Apps/Notes Leloo.apk";
+  Future<void> download(url) async {
     html.AnchorElement anchorElement = html.AnchorElement(href: url);
-    anchorElement.download = "Notes Leloo.apk";
+    anchorElement.download = url;
     anchorElement.click();
   }
 
-  void DownloadForMobile() {}
-  void Hire() {}
-  void chatApp() {}
+  void contact() {}
 }

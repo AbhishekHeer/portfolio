@@ -1,10 +1,13 @@
+import 'dart:convert';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/Download/cv_download.dart';
-import 'package:portfolio/Getx/fetchlocal.dart';
+// import 'package:portfolio/Getx/fetchlocal.dart';
 import 'package:portfolio/Getx/hover.dart';
 
 class Projects extends StatefulWidget {
@@ -15,21 +18,22 @@ class Projects extends StatefulWidget {
 }
 
 ColorsController change_Color = Get.put(ColorsController());
-// List data = [];
-
-LocalJSONController data = Get.put(LocalJSONController());
-@override
-void initState() {
-  data.fetch();
-}
+List data = [];
 
 class _ProjectsState extends State<Projects> {
+  @override
+  @override
+  void initState() {
+    super.initState();
+    fetch();
+  }
+
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.of(context).size.width < 706;
     return GridView.builder(
-      shrinkWrap: true,
-      itemCount: data.data.length,
+      // shrinkWrap: true,
+      itemCount: data.length,
       itemBuilder: (context, index) {
         return Padding(
           padding: EdgeInsets.only(top: Get.height * .1),
@@ -52,18 +56,15 @@ class _ProjectsState extends State<Projects> {
                           margin: EdgeInsets.only(
                               left: Get.width * .07, top: Get.height * .06),
                           child: AutoSizeText(
-                            data.data[index]['application'],
+                            data[index]['application'],
                             style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w400,
                                 fontSize: Get.width * .03),
                           )),
-                      Padding(
-                        padding: EdgeInsets.only(top: Get.height * .05),
-                        child: SizedBox(
-                          width: Get.width * .4,
-                          child: const AutoSizeText(
-                              'I created this project in order to show how to create an Chat Application in Android Phone using a Flutter'),
-                        ),
+                      SizedBox(
+                        width: Get.width * .4,
+                        child:
+                            AutoSizeText(data[index]["Description"].toString()),
                       ),
                       SizedBox(
                           width: 0.0,
@@ -85,7 +86,8 @@ class _ProjectsState extends State<Projects> {
                                 onHover: (value) {
                                   change_Color.changecolor(value);
                                 },
-                                onTap: () => DownloadController().chatApp(),
+                                onTap: () => DownloadController()
+                                    .download(data[index]["link"].toString()),
                                 child: Center(
                                     child: Row(
                                   mainAxisAlignment:
@@ -112,9 +114,9 @@ class _ProjectsState extends State<Projects> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      image: const DecorationImage(
+                      image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: AssetImage('Assets/Images/chat.jpg'),
+                        image: AssetImage(data[index]["image"]),
                       ),
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(Get.width * .02),
@@ -132,12 +134,12 @@ class _ProjectsState extends State<Projects> {
     );
   }
 
-  // Future<void> fetch() async {
-  //   final url = await rootBundle.loadString('Assets/Apps/App.json');
-  //   final res = await jsonDecode(url);
+  Future<void> fetch() async {
+    final url = await rootBundle.loadString('Assets/Apps/App.json');
+    final res = await jsonDecode(url);
 
-  //   setState(() {
-  //     data = res["Apps"];
-  //   });
-  // }
+    setState(() {
+      data = res["Apps"];
+    });
+  }
 }

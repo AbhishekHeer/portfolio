@@ -9,6 +9,6 @@ class LocalJSONController extends GetxController {
     final url = await rootBundle.loadString('Assets/Apps/App.json');
     final res = await jsonDecode(url);
 
-    data = res["Apps"].obs;
+    data.value = res["Apps"];
   }
 }
