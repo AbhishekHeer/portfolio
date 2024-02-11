@@ -9,4 +9,5 @@ class DownloadController {
 
   void DownloadForMobile() {}
   void Hire() {}
+  void chatApp() {}
 }
