@@ -12,7 +12,7 @@ class _TabbarsState extends State<Tabbars> {
   @override
   Widget build(BuildContext context) {
     return const DefaultTabController(
-        length: 2,
+        length: 1,
         child: Column(
           children: [
             TabBar(
@@ -23,9 +23,6 @@ class _TabbarsState extends State<Tabbars> {
                   Tab(
                     text: "Projects",
                   ),
-                  Tab(
-                    text: "About",
-                  )
                 ]),
             ViewTab()
           ],

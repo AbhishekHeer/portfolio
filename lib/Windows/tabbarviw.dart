@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/Windows/Code.dart';
 import 'package:portfolio/Windows/Project.dart';
 
 class ViewTab extends StatefulWidget {
@@ -16,11 +15,8 @@ class _ViewTabState extends State<ViewTab> {
     return SizedBox(
         height: Get.height,
         width: Get.width * .8,
-        child: const TabBarView(
-            physics: AlwaysScrollableScrollPhysics(),
-            children: [
-              Projects(),
-              Sourcecode(),
-            ]));
+        child: const TabBarView(physics: BouncingScrollPhysics(), children: [
+          Projects(),
+        ]));
   }
 }

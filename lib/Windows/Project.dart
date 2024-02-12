@@ -159,7 +159,7 @@ class _ProjectsState extends State<Projects> {
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 1,
               childAspectRatio: width > 580
-                  ? 1.7
+                  ? 2.4
                   : width > 720
                       ? 2.7
                       : 2),

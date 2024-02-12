@@ -4,6 +4,7 @@ import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/Download/cv_download.dart';
+import 'package:portfolio/Windows/Code.dart';
 import 'package:portfolio/Windows/Footer/footer.dart';
 import 'package:portfolio/Windows/tabbar.dart';
 
@@ -17,7 +18,7 @@ class HomeViewWindow extends StatefulWidget {
 class _HomeViewWindowState extends State<HomeViewWindow> {
   @override
   Widget build(BuildContext context) {
-    final w = MediaQuery.of(context).size.width > 706;
+    final w = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         flexibleSpace: Container(
@@ -34,15 +35,48 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
         title: AutoSizeText(
           'Abhishek Heer',
           style: GoogleFonts.wixMadeforDisplay(
-              fontSize: w ? Get.width * .015 : Get.width * .036,
+              fontSize: w > 706 ? Get.width * .015 : Get.width * .036,
               fontWeight: FontWeight.w500),
         ),
         actions: [
-          const Text('About'),
+          InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const About()),
+                );
+              },
+              child: AutoSizeText(
+                'About',
+                style: GoogleFonts.poppins(
+                    fontSize: w < 706
+                        ? Get.width * .03
+                        : w < 580
+                            ? Get.width * .05
+                            : Get.width * .012),
+              )),
           SizedBox(width: Get.width * .03),
-          const Text('Project'),
+          InkWell(
+              child: AutoSizeText(
+            'Projects',
+            style: GoogleFonts.poppins(
+                fontSize: w < 706
+                    ? Get.width * .03
+                    : w < 580
+                        ? Get.width * .05
+                        : Get.width * .012),
+          )),
           SizedBox(width: Get.width * .03),
-          const Text('Contacts'),
+          InkWell(
+              child: AutoSizeText(
+            'Contact',
+            style: GoogleFonts.poppins(
+                fontSize: w < 706
+                    ? Get.width * .03
+                    : w < 580
+                        ? Get.width * .05
+                        : Get.width * .012),
+          )),
           SizedBox(width: Get.width * .03),
         ],
       ),
@@ -54,7 +88,7 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
               child: ClipPath(
                 clipper: WaveClipperOne(),
                 child: Container(
-                  height: w ? Get.height * .6 : Get.height * .5,
+                  height: w > 706 ? Get.height * .6 : Get.height * .5,
                   // width: Get.width,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
@@ -86,7 +120,7 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                         child: AutoSizeText(
                                           'Flutter developer',
                                           style: GoogleFonts.poppins(
-                                              fontSize: w
+                                              fontSize: w > 706
                                                   ? Get.width * .03
                                                   : Get.width * .04,
                                               fontWeight: FontWeight.w500),
@@ -107,7 +141,7 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                         ),
                                       ),
                                     ),
-                                    w
+                                    w > 706
                                         ? Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceAround,

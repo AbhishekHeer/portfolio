@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/Mobile/home.dart';
+import 'package:portfolio/Windows/Code.dart';
 import 'package:portfolio/Windows/HomePage.dart';
 import 'package:portfolio/firebase_options.dart';
 
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
       defaultTransition: Transition.fade,
-      home: width ? const HomeViewWindow() : const HomeViewMobile(),
+      // home: width ? const HomeViewWindow() : const HomeViewMobile(),
+      home: const About(),
     );
   }
 }
