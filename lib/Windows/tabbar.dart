@@ -24,7 +24,7 @@ class _TabbarsState extends State<Tabbars> {
                     text: "Projects",
                   ),
                   Tab(
-                    text: "Souce Code",
+                    text: "About",
                   )
                 ]),
             ViewTab()

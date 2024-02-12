@@ -82,9 +82,9 @@ class _ProjectsState extends State<Projects> {
                           ),
                           SizedBox(
                               height: width > 720
-                                  ? Get.height * .02
+                                  ? Get.height * .1
                                   : width > 580
-                                      ? Get.width * .0
+                                      ? Get.height * .07
                                       : Get.height * .2),
                           Obx(() => Align(
                                 alignment: Alignment.bottomCenter,
@@ -92,12 +92,12 @@ class _ProjectsState extends State<Projects> {
                                   width: width > 706
                                       ? Get.width * .14
                                       : width > 580
-                                          ? Get.width * .15
+                                          ? Get.width * .2
                                           : Get.width * .1,
                                   height: width > 706
                                       ? Get.height * .06
                                       : width >= 580
-                                          ? Get.width * .07
+                                          ? Get.width * .05
                                           : Get.height * .04,
                                   decoration: BoxDecoration(
                                       color: change_Color.change.value == true
@@ -158,11 +158,11 @@ class _ProjectsState extends State<Projects> {
           },
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 1,
-              childAspectRatio: width > 706
-                  ? 1.9
-                  : width > 580
-                      ? 2.2
-                      : 2.6),
+              childAspectRatio: width > 580
+                  ? 1.7
+                  : width > 720
+                      ? 2.7
+                      : 2),
         ));
   }
 }

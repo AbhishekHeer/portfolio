@@ -18,6 +18,9 @@ class _ViewTabState extends State<ViewTab> {
         width: Get.width * .8,
         child: const TabBarView(
             physics: AlwaysScrollableScrollPhysics(),
-            children: [Projects(), Sourcecode()]));
+            children: [
+              Projects(),
+              Sourcecode(),
+            ]));
   }
 }
