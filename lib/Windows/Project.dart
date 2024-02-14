@@ -187,7 +187,7 @@ class _ProjectsState extends State<Projects> {
                                   SizedBox(
                                       width: width > 706
                                           ? Get.width * .0
-                                          : Get.width * .03,
+                                          : Get.width * .02,
                                       height: 0.0),
                                   Padding(
                                     padding: EdgeInsets.only(
