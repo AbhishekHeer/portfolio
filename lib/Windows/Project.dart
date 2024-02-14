@@ -142,7 +142,7 @@ class _ProjectsState extends State<Projects> {
                                                   color: Colors.black)),
                                           child: InkWell(
                                             onTap: () => DownloadController()
-                                                .download(localapi.data[index]
+                                                .repolink(localapi.data[index]
                                                         ["link"]
                                                     .toString()),
                                             child: Center(
@@ -318,7 +318,7 @@ class _ProjectsState extends State<Projects> {
                         trailing: CircleAvatar(
                           child: InkWell(
                             onTap: () => DownloadController()
-                                .download(localapi.data[index]["link"]),
+                                .repolink(localapi.data[index]["link"]),
                             child: const Center(
                               child: Icon(CupertinoIcons.down_arrow),
                             ),
