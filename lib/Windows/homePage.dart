@@ -65,21 +65,33 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                       )),
                   SizedBox(width: Get.width * .03),
                   InkWell(
+                      onTap: () => DownloadController().contact(context),
                       child: AutoSizeText(
-                    'Contact',
-                    style: GoogleFonts.poppins(
-                        color: ThemeMode.dark == true
-                            ? Colors.white
-                            : Colors.black,
-                        fontSize: w < 706
-                            ? Get.width * .03
-                            : w < 580
-                                ? Get.width * .05
-                                : Get.width * .012),
-                  )),
+                        'Hire Me',
+                        style: GoogleFonts.poppins(
+                            color: ThemeMode.dark == true
+                                ? Colors.white
+                                : Colors.black,
+                            fontSize: w < 706
+                                ? Get.width * .03
+                                : w < 580
+                                    ? Get.width * .05
+                                    : Get.width * .012),
+                      )),
                   SizedBox(width: Get.width * .03),
                 ]
               : [
+                  CircleAvatar(
+                      radius: Get.width * .03,
+                      backgroundColor: Colors.white,
+                      child: ClipOval(
+                        child: Image.asset(
+                          'Assets/Images/Pic_Ashh.png',
+                          fit: BoxFit.contain,
+                          width: w,
+                          height: Get.height,
+                        ),
+                      )),
                   PopupMenuButton<int>(
                     iconColor: Colors.black,
                     itemBuilder: (context) => [
@@ -110,7 +122,7 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                             SizedBox(
                               width: Get.width * .08,
                             ),
-                            const Text("Contact")
+                            const Text("Hire Me")
                           ],
                         ),
                         onTap: () => DownloadController().contact(context),
@@ -145,7 +157,7 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                         children: [
                           Container(
                             height: Get.height,
-                            width: Get.width * .5,
+                            width: w > 580 ? Get.width * .4 : Get.width,
                             decoration: const BoxDecoration(
                                 // color: Colors.black,
                                 ),
@@ -173,7 +185,8 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                     Padding(
                                       padding: EdgeInsets.only(
                                           top: Get.height * .03,
-                                          right: Get.width * .03),
+                                          right: Get.width * .03,
+                                          left: Get.width * .03),
                                       child: SizedBox(
                                         height: Get.height * .2,
                                         child: AutoSizeText(
@@ -192,208 +205,116 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                         ),
                                       ),
                                     ),
-                                    w > 706
-                                        ? Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceAround,
-                                            children: [
-                                              InkWell(
-                                                onTap: () =>
-                                                    DownloadController()
-                                                        .download(
-                                                            "Assets/CV/CV.pdf"),
-                                                child: Container(
-                                                  width: Get.width * .15,
-                                                  height: Get.height * .06,
-                                                  decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.black,
-                                                          width: Get.width *
-                                                              .0005),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              Get.height * .04),
-                                                      gradient:
-                                                          const LinearGradient(
-                                                              end: Alignment
-                                                                  .centerRight,
-                                                              begin: Alignment
-                                                                  .centerLeft,
-                                                              colors: [
-                                                            Colors.white,
-                                                            Colors.tealAccent
-                                                          ])),
-                                                  child: Center(
-                                                    child: AutoSizeText(
-                                                      "Download CV",
-                                                      style: GoogleFonts.poppins(
-                                                          color: ThemeMode
-                                                                      .dark ==
-                                                                  true
-                                                              ? Colors.white
-                                                              : Colors.black,
-                                                          fontSize:
-                                                              Get.width * .01,
-                                                          fontWeight:
-                                                              FontWeight.w500),
-                                                    ),
-                                                  ),
-                                                ),
+                                    SizedBox(
+                                        width: 0.0,
+                                        height: w > 708
+                                            ? Get.height * .02
+                                            : w > 580
+                                                ? Get.height * .01
+                                                : 0.0),
+                                    Row(
+                                      mainAxisAlignment: w > 580
+                                          ? MainAxisAlignment.spaceAround
+                                          : MainAxisAlignment.center,
+                                      children: [
+                                        InkWell(
+                                          onTap: () => DownloadController()
+                                              .download("Assets/CV/CV.pdf"),
+                                          child: Container(
+                                            width: w > 580
+                                                ? Get.width * .2
+                                                : Get.width * .3,
+                                            height: Get.height * .06,
+                                            decoration: BoxDecoration(
+                                                border: Border.all(
+                                                    color: Colors.black,
+                                                    width: Get.width * .0005),
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        Get.height * .04),
+                                                gradient: const LinearGradient(
+                                                    end: Alignment.centerRight,
+                                                    begin: Alignment.centerLeft,
+                                                    colors: [
+                                                      Colors.white,
+                                                      Colors.tealAccent
+                                                    ])),
+                                            child: Center(
+                                              child: AutoSizeText(
+                                                "Download CV",
+                                                style: GoogleFonts.poppins(
+                                                    color:
+                                                        ThemeMode.dark == true
+                                                            ? Colors.white
+                                                            : Colors.black,
+                                                    fontSize: Get.width * .01,
+                                                    fontWeight:
+                                                        FontWeight.w500),
                                               ),
-                                              InkWell(
-                                                onTap: () =>
-                                                    DownloadController()
-                                                        .contact(context),
-                                                child: Container(
-                                                  width: Get.width * .3,
-                                                  height: Get.height * .05,
-                                                  decoration: BoxDecoration(
-                                                      color: Colors.amber,
-                                                      border: Border.all(
-                                                          color: Colors.black,
-                                                          width: Get.width *
-                                                              .0005),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              Get.height * .04),
-                                                      gradient:
-                                                          const LinearGradient(
-                                                              end: Alignment
-                                                                  .centerRight,
-                                                              begin: Alignment
-                                                                  .centerLeft,
-                                                              colors: [
-                                                            Colors.white,
-                                                            Colors.tealAccent
-                                                          ])),
-                                                  child: Center(
-                                                    child: AutoSizeText(
-                                                      "Hire Me",
-                                                      style: GoogleFonts.poppins(
-                                                          color: ThemeMode
-                                                                      .dark ==
-                                                                  true
-                                                              ? Colors.white
-                                                              : Colors.black,
-                                                          fontSize:
-                                                              Get.width * .01,
-                                                          fontWeight:
-                                                              FontWeight.w500),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                  width: Get.width * .03,
-                                                  height: 0.0),
-                                            ],
-                                          )
-                                        : Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              InkWell(
-                                                onTap: () =>
-                                                    DownloadController()
-                                                        .download(
-                                                            "Assets/CV/CV.pdf"),
-                                                child: Container(
-                                                  width: Get.width * .25,
-                                                  height: Get.height * .055,
-                                                  decoration: BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors.black,
-                                                          width: Get.width *
-                                                              .0005),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              Get.width * .04),
-                                                      gradient:
-                                                          const LinearGradient(
-                                                              end: Alignment
-                                                                  .centerRight,
-                                                              begin: Alignment
-                                                                  .centerLeft,
-                                                              colors: [
-                                                            Colors.white,
-                                                            Colors.tealAccent
-                                                          ])),
-                                                  child: Center(
-                                                    child: AutoSizeText(
-                                                      "Download CV",
-                                                      style: GoogleFonts.poppins(
-                                                          color: ThemeMode
-                                                                      .dark ==
-                                                                  true
-                                                              ? Colors.white
-                                                              : Colors.black,
-                                                          fontSize:
-                                                              Get.width * .01,
-                                                          fontWeight:
-                                                              FontWeight.w500),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                  height: Get.height * .03),
-                                              InkWell(
-                                                onTap: () =>
-                                                    DownloadController()
-                                                        .contact(context),
-                                                child: Container(
-                                                  width: w > 706
-                                                      ? Get.width * .15
-                                                      : Get.width * .15,
-                                                  height: w > 706
-                                                      ? Get.height * .06
-                                                      : Get.height * .055,
-                                                  decoration: BoxDecoration(
-                                                    border: Border.all(
-                                                        color: Colors.black,
-                                                        width:
-                                                            Get.width * .0005),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            Get.height * .04),
-                                                  ),
-                                                  child: Center(
-                                                    child: AutoSizeText(
-                                                      "Hire Me",
-                                                      style: GoogleFonts.poppins(
-                                                          color: ThemeMode
-                                                                      .dark ==
-                                                                  true
-                                                              ? Colors.white
-                                                              : Colors.black,
-                                                          fontSize:
-                                                              Get.width * .01,
-                                                          fontWeight:
-                                                              FontWeight.w500),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                  width: Get.width * .03,
-                                                  height: 0.0),
-                                            ],
+                                            ),
                                           ),
+                                        ),
+                                        SizedBox(
+                                            width: w < 580
+                                                ? Get.width * .08
+                                                : w * .01,
+                                            height: 0.0),
+                                        InkWell(
+                                          onTap: () => DownloadController()
+                                              .contact(context),
+                                          child: Container(
+                                            width: w > 580
+                                                ? Get.width * .1
+                                                : Get.width * .3,
+                                            height: Get.height * .06,
+                                            decoration: BoxDecoration(
+                                                color: Colors.amber,
+                                                border: Border.all(
+                                                    color: Colors.black,
+                                                    width: Get.width * .0005),
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        Get.height * .04),
+                                                gradient: const LinearGradient(
+                                                    end: Alignment.centerRight,
+                                                    begin: Alignment.centerLeft,
+                                                    colors: [
+                                                      Colors.white,
+                                                      Colors.tealAccent
+                                                    ])),
+                                            child: Center(
+                                              child: AutoSizeText(
+                                                "Hire Me",
+                                                style: GoogleFonts.poppins(
+                                                    color:
+                                                        ThemeMode.dark == true
+                                                            ? Colors.white
+                                                            : Colors.black,
+                                                    fontSize: Get.width * .01,
+                                                    fontWeight:
+                                                        FontWeight.w500),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    )
                                   ],
                                 )),
                           ),
-                          Container(
-                            height: Get.height,
-                            width: Get.width * .4,
-                            decoration: const BoxDecoration(
-                              // color: Colors.amber,
-                              image: DecorationImage(
-                                image: AssetImage("Assets/Images/Pic_Ashh.png"),
-                              ),
-                            ),
-                          ),
+                          w > 580
+                              ? Container(
+                                  height: Get.height,
+                                  width: Get.width * .4,
+                                  decoration: const BoxDecoration(
+                                    // color: Colors.amber,
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                          "Assets/Images/Pic_Ashh.png"),
+                                    ),
+                                  ),
+                                )
+                              : const SizedBox(width: 0.0, height: 0.0)
                         ],
                       )
                     ],

@@ -2,28 +2,28 @@
     "Apps":[
         {
         "application" : "Notes Leloo",
-        "Description":"I created this project in order to show how to create an Chat Application in Android Phone using a Flutter",
+        "Description":"Note Leloo Application in Android Phone using a Flutter FrameWork there is only 1 option for sign in (Google Sign In ). in which application user can upload there notes in only .pdf format and also another user can download it",
         "image" : "Assets/Images/notes.jpg", 
         "link" : "Assets/Apps/Notes Leloo.apk", 
         "repo_link":"https://github.com/AbhishekHeer/Notes-Lelo"
     },
     {
         "application" : "E-Commerce App",
-        "Description":"I created this project in order to show how to create an Chat Application in Android Phone using a Flutter",
+        "Description":"E-Commerce Application in Android Phone using a Flutter In This Project i used firebase as backend and for authenticator i used firebase auth ",
         "image" : "Assets/Images/Ecomerce.jpg", 
         "link" :"Assets/Apps/Ecomerce.apk",
         "repo_link":"https://github.com/AbhishekHeer/Chatty-Using-Firebase-As-Backend"
     },
     {
         "application" : "Weather App",
-        "Description":"I created this project in order to show how to create an Chat Application in Android Phone using a Flutter",
+        "Description":"Weather Application in Android Phone using a Flutter. in this Appplication i used and rest API https://openweathermap.org/ it may not show an weather details in App because of API is Limitation",
         "image" : "Assets/Images/weather.jpg",
         "link" :"Assets/Apps/Weather.apk",
         "repo_link":"https://github.com/AbhishekHeer/Weather_App"
     },
     {
         "application" : "Chat App",
-        "Description":"I created this project in order to show how to create an Chat Application in Android Phone using a Flutter",
+        "Description":"Chat Application in Android Phone using a Flutter. in this project user can chat with there friends and chat is in private mode nobody can read your chat with your friend and in this application i used firebase messaging ( notification sent to user )",
         "image" : "Assets/Images/chat.jpg", 
         "link" :"Assets/Apps/Chatty.apk",
         "repo_link":"https://github.com/AbhishekHeer/Chatty-Using-Firebase-As-Backend"
