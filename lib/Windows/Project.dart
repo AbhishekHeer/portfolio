@@ -31,7 +31,7 @@ class _ProjectsState extends State<Projects> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    return Obx(() => width > 580
+    return Obx(() => width > 611
         ? Padding(
             padding: EdgeInsets.only(
               left: Get.width * .06,
@@ -41,6 +41,7 @@ class _ProjectsState extends State<Projects> {
               shrinkWrap: true,
               itemCount: localapi.data.length,
               itemBuilder: (context, index) {
+                final des = localapi.data[index]["Description"].toString();
                 return Padding(
                   padding: EdgeInsets.only(top: Get.height * .1),
                   child: Container(
@@ -60,7 +61,7 @@ class _ProjectsState extends State<Projects> {
                               Container(
                                   margin: EdgeInsets.only(
                                       left: Get.width * .07,
-                                      top: width <= 580
+                                      top: width <= 611
                                           ? Get.height * .03
                                           : width > 706
                                               ? Get.width * .03
@@ -82,10 +83,14 @@ class _ProjectsState extends State<Projects> {
                                 child: SizedBox(
                                   width: Get.width * .4,
                                   child: AutoSizeText(
-                                    localapi.data[index]["Description"]
-                                        .toString(),
+                                    des.length < 150
+                                        ? localapi.data[index]["Description"]
+                                            .toString()
+                                        : localapi.data[index]["Description"]
+                                            .toString()
+                                            .substring(0, 150),
                                     style: GoogleFonts.poppins(
-                                      fontSize: width <= 580
+                                      fontSize: width <= 611
                                           ? Get.width * .01
                                           : width > 720
                                               ? Get.width * .013
@@ -101,7 +106,7 @@ class _ProjectsState extends State<Projects> {
                               SizedBox(
                                   height: width > 706 && width < 990
                                       ? Get.height * .0
-                                      : width > 580
+                                      : width > 611
                                           ? Get.height * .02
                                           : Get.height * .02),
                               Row(
@@ -126,12 +131,12 @@ class _ProjectsState extends State<Projects> {
                                         Container(
                                           width: width > 706 && width < 990
                                               ? Get.width * .16
-                                              : width > 580
+                                              : width > 611
                                                   ? Get.width * .15
                                                   : Get.width * .1,
                                           height: width > 706 && width < 990
                                               ? Get.height * .05
-                                              : width >= 580
+                                              : width >= 611
                                                   ? Get.width * .05
                                                   : Get.height * .04,
                                           decoration: BoxDecoration(
@@ -187,7 +192,7 @@ class _ProjectsState extends State<Projects> {
                                   SizedBox(
                                       width: width > 706
                                           ? Get.width * .0
-                                          : Get.width * .02,
+                                          : Get.width * .03,
                                       height: 0.0),
                                   Padding(
                                     padding: EdgeInsets.only(
@@ -202,12 +207,12 @@ class _ProjectsState extends State<Projects> {
                                         Container(
                                           width: width > 706 && width < 990
                                               ? Get.width * .17
-                                              : width > 580
+                                              : width > 611
                                                   ? Get.width * .19
                                                   : Get.width * .1,
                                           height: width > 706 && width < 990
                                               ? Get.height * .05
-                                              : width >= 580
+                                              : width >= 611
                                                   ? Get.width * .05
                                                   : Get.height * .04,
                                           decoration: BoxDecoration(
@@ -285,11 +290,11 @@ class _ProjectsState extends State<Projects> {
               },
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 1,
-                  childAspectRatio: width > 706
-                      ? 2.3
-                      : width > 580
-                          ? 2.1
-                          : 1,
+                  childAspectRatio: width > 706 && width < 1100
+                      ? 2
+                      : width > 611 && width > 1100
+                          ? 2.8
+                          : 2,
                   crossAxisSpacing: 3,
                   mainAxisSpacing: 3),
             ),

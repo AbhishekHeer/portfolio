@@ -140,7 +140,8 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
               child: ClipPath(
                 clipper: WaveClipperOne(),
                 child: Container(
-                  height: w > 706 ? Get.height * .5 : Get.height * .5,
+                  height:
+                      w > 706 && w < 1100 ? Get.height * .5 : Get.height * .6,
                   // width: Get.width,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
@@ -167,7 +168,7 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                   children: <Widget>[
                                     Padding(
                                       padding: EdgeInsets.only(
-                                          top: Get.height * .03),
+                                          top: Get.height * .02),
                                       child: Center(
                                         child: AutoSizeText(
                                           'Flutter developer',
@@ -222,9 +223,11 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                               .download("Assets/CV/CV.pdf"),
                                           child: Container(
                                             width: w > 580
-                                                ? Get.width * .2
+                                                ? Get.width * .16
                                                 : Get.width * .3,
-                                            height: Get.height * .06,
+                                            height: w > 780
+                                                ? Get.width * .034
+                                                : Get.height * .06,
                                             decoration: BoxDecoration(
                                                 border: Border.all(
                                                     color: Colors.black,
@@ -264,9 +267,11 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                               .contact(context),
                                           child: Container(
                                             width: w > 580
-                                                ? Get.width * .1
+                                                ? Get.width * .12
                                                 : Get.width * .3,
-                                            height: Get.height * .06,
+                                            height: w > 780
+                                                ? Get.width * .034
+                                                : Get.height * .06,
                                             decoration: BoxDecoration(
                                                 color: Colors.amber,
                                                 border: Border.all(
