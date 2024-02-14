@@ -1,8 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/Mobile/home.dart';
-import 'package:portfolio/Windows/Code.dart';
 import 'package:portfolio/Windows/HomePage.dart';
 import 'package:portfolio/firebase_options.dart';
 
@@ -19,13 +17,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width > 480;
+    // final width = MediaQuery.of(context).size.width > 480;
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true),
+      theme: ThemeData(useMaterial3: true, primaryTextTheme: const TextTheme()),
+      themeMode: ThemeMode.system,
+      darkTheme: ThemeData.dark(
+        useMaterial3: true,
+      ),
       defaultTransition: Transition.fade,
-      // home: width ? const HomeViewWindow() : const HomeViewMobile(),
-      home: const About(),
+      home: const HomeViewWindow(),
+      // home: const About(),
     );
   }
 }

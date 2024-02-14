@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:get/get.dart';
@@ -6,7 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/Download/cv_download.dart';
 import 'package:portfolio/Windows/Code.dart';
 import 'package:portfolio/Windows/Footer/footer.dart';
-import 'package:portfolio/Windows/tabbar.dart';
+import 'package:portfolio/Windows/Project.dart';
 
 class HomeViewWindow extends StatefulWidget {
   const HomeViewWindow({super.key});
@@ -21,65 +22,104 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
     final w = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [Colors.white, Colors.tealAccent],
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [Colors.white, Colors.tealAccent],
+              ),
             ),
           ),
-        ),
-        elevation: 0,
-        backgroundColor: Colors.tealAccent,
-        title: AutoSizeText(
-          'Abhishek Heer',
-          style: GoogleFonts.wixMadeforDisplay(
-              fontSize: w > 706 ? Get.width * .015 : Get.width * .036,
-              fontWeight: FontWeight.w500),
-        ),
-        actions: [
-          InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const About()),
-                );
-              },
-              child: AutoSizeText(
-                'About',
-                style: GoogleFonts.poppins(
-                    fontSize: w < 706
-                        ? Get.width * .03
-                        : w < 580
-                            ? Get.width * .05
-                            : Get.width * .012),
-              )),
-          SizedBox(width: Get.width * .03),
-          InkWell(
-              child: AutoSizeText(
-            'Projects',
-            style: GoogleFonts.poppins(
-                fontSize: w < 706
-                    ? Get.width * .03
-                    : w < 580
-                        ? Get.width * .05
-                        : Get.width * .012),
-          )),
-          SizedBox(width: Get.width * .03),
-          InkWell(
-              child: AutoSizeText(
-            'Contact',
-            style: GoogleFonts.poppins(
-                fontSize: w < 706
-                    ? Get.width * .03
-                    : w < 580
-                        ? Get.width * .05
-                        : Get.width * .012),
-          )),
-          SizedBox(width: Get.width * .03),
-        ],
-      ),
+          elevation: 0,
+          backgroundColor: Colors.tealAccent,
+          title: AutoSizeText(
+            'Abhishek Heer',
+            style: GoogleFonts.wixMadeforDisplay(
+                color: ThemeMode.dark == true ? Colors.white : Colors.black,
+                fontSize: w > 706 ? Get.width * .015 : Get.width * .036,
+                fontWeight: FontWeight.w500),
+          ),
+          actions: w > 580
+              ? [
+                  InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const About()),
+                        );
+                      },
+                      child: AutoSizeText(
+                        'About',
+                        style: GoogleFonts.poppins(
+                          color: ThemeMode.dark == true
+                              ? Colors.white
+                              : Colors.black,
+                          fontSize: w < 706
+                              ? Get.width * .03
+                              : w < 580
+                                  ? Get.width * .05
+                                  : Get.width * .012,
+                        ),
+                      )),
+                  SizedBox(width: Get.width * .03),
+                  InkWell(
+                      child: AutoSizeText(
+                    'Contact',
+                    style: GoogleFonts.poppins(
+                        color: ThemeMode.dark == true
+                            ? Colors.white
+                            : Colors.black,
+                        fontSize: w < 706
+                            ? Get.width * .03
+                            : w < 580
+                                ? Get.width * .05
+                                : Get.width * .012),
+                  )),
+                  SizedBox(width: Get.width * .03),
+                ]
+              : [
+                  PopupMenuButton<int>(
+                    iconColor: Colors.black,
+                    itemBuilder: (context) => [
+                      PopupMenuItem(
+                        value: 1,
+                        child: Row(
+                          children: [
+                            const Icon(CupertinoIcons.settings),
+                            SizedBox(
+                              width: Get.width * .08,
+                            ),
+                            const Text("About")
+                          ],
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const About()),
+                          );
+                        },
+                      ),
+                      PopupMenuItem(
+                        value: 2,
+                        child: Row(
+                          children: [
+                            const Icon(CupertinoIcons.person),
+                            SizedBox(
+                              width: Get.width * .08,
+                            ),
+                            const Text("Contact")
+                          ],
+                        ),
+                        onTap: () => DownloadController().contact(context),
+                      ),
+                    ],
+                    offset: Offset(0, Get.width * .08),
+                    elevation: 1,
+                  ),
+                ]),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -88,7 +128,7 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
               child: ClipPath(
                 clipper: WaveClipperOne(),
                 child: Container(
-                  height: w > 706 ? Get.height * .6 : Get.height * .5,
+                  height: w > 706 ? Get.height * .5 : Get.height * .5,
                   // width: Get.width,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
@@ -120,6 +160,9 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                         child: AutoSizeText(
                                           'Flutter developer',
                                           style: GoogleFonts.poppins(
+                                              color: ThemeMode.dark == true
+                                                  ? Colors.white
+                                                  : Colors.black,
                                               fontSize: w > 706
                                                   ? Get.width * .03
                                                   : Get.width * .04,
@@ -136,6 +179,14 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                         child: AutoSizeText(
                                           '''I'm always learning and exploring new ways to push the boundaries of Flutter development. If you're looking for a skilled and enthusiastic developer to build your next amazing app, let's connect!''',
                                           style: GoogleFonts.poppins(
+                                              color: ThemeMode.dark == true
+                                                  ? Colors.white
+                                                  : Colors.black,
+                                              fontSize: w > 706
+                                                  ? w * .015
+                                                  : w > 580
+                                                      ? w * .01
+                                                      : w * .01,
                                               fontWeight: FontWeight.w400),
                                           textAlign: TextAlign.start,
                                         ),
@@ -175,14 +226,16 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                                   child: Center(
                                                     child: AutoSizeText(
                                                       "Download CV",
-                                                      style:
-                                                          GoogleFonts.poppins(
-                                                              fontSize:
-                                                                  Get.width *
-                                                                      .01,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500),
+                                                      style: GoogleFonts.poppins(
+                                                          color: ThemeMode
+                                                                      .dark ==
+                                                                  true
+                                                              ? Colors.white
+                                                              : Colors.black,
+                                                          fontSize:
+                                                              Get.width * .01,
+                                                          fontWeight:
+                                                              FontWeight.w500),
                                                     ),
                                                   ),
                                                 ),
@@ -190,11 +243,12 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                               InkWell(
                                                 onTap: () =>
                                                     DownloadController()
-                                                        .contact(),
+                                                        .contact(context),
                                                 child: Container(
-                                                  width: Get.width * .15,
-                                                  height: Get.height * .06,
+                                                  width: Get.width * .3,
+                                                  height: Get.height * .05,
                                                   decoration: BoxDecoration(
+                                                      color: Colors.amber,
                                                       border: Border.all(
                                                           color: Colors.black,
                                                           width: Get.width *
@@ -215,14 +269,16 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                                   child: Center(
                                                     child: AutoSizeText(
                                                       "Hire Me",
-                                                      style:
-                                                          GoogleFonts.poppins(
-                                                              fontSize:
-                                                                  Get.width *
-                                                                      .01,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500),
+                                                      style: GoogleFonts.poppins(
+                                                          color: ThemeMode
+                                                                      .dark ==
+                                                                  true
+                                                              ? Colors.white
+                                                              : Colors.black,
+                                                          fontSize:
+                                                              Get.width * .01,
+                                                          fontWeight:
+                                                              FontWeight.w500),
                                                     ),
                                                   ),
                                                 ),
@@ -232,9 +288,11 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                                   height: 0.0),
                                             ],
                                           )
-                                        : Row(
+                                        : Column(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.spaceAround,
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             children: [
                                               InkWell(
                                                 onTap: () =>
@@ -243,7 +301,7 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                                             "Assets/CV/CV.pdf"),
                                                 child: Container(
                                                   width: Get.width * .25,
-                                                  height: Get.height * .06,
+                                                  height: Get.height * .055,
                                                   decoration: BoxDecoration(
                                                       border: Border.all(
                                                           color: Colors.black,
@@ -265,25 +323,33 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                                   child: Center(
                                                     child: AutoSizeText(
                                                       "Download CV",
-                                                      style:
-                                                          GoogleFonts.poppins(
-                                                              fontSize:
-                                                                  Get.width *
-                                                                      .01,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500),
+                                                      style: GoogleFonts.poppins(
+                                                          color: ThemeMode
+                                                                      .dark ==
+                                                                  true
+                                                              ? Colors.white
+                                                              : Colors.black,
+                                                          fontSize:
+                                                              Get.width * .01,
+                                                          fontWeight:
+                                                              FontWeight.w500),
                                                     ),
                                                   ),
                                                 ),
                                               ),
+                                              SizedBox(
+                                                  height: Get.height * .03),
                                               InkWell(
                                                 onTap: () =>
                                                     DownloadController()
-                                                        .contact(),
+                                                        .contact(context),
                                                 child: Container(
-                                                  width: Get.width * .15,
-                                                  height: Get.height * .06,
+                                                  width: w > 706
+                                                      ? Get.width * .15
+                                                      : Get.width * .15,
+                                                  height: w > 706
+                                                      ? Get.height * .06
+                                                      : Get.height * .055,
                                                   decoration: BoxDecoration(
                                                     border: Border.all(
                                                         color: Colors.black,
@@ -296,14 +362,16 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                                   child: Center(
                                                     child: AutoSizeText(
                                                       "Hire Me",
-                                                      style:
-                                                          GoogleFonts.poppins(
-                                                              fontSize:
-                                                                  Get.width *
-                                                                      .01,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500),
+                                                      style: GoogleFonts.poppins(
+                                                          color: ThemeMode
+                                                                      .dark ==
+                                                                  true
+                                                              ? Colors.white
+                                                              : Colors.black,
+                                                          fontSize:
+                                                              Get.width * .01,
+                                                          fontWeight:
+                                                              FontWeight.w500),
                                                     ),
                                                   ),
                                                 ),
@@ -333,7 +401,27 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                 ),
               ),
             ),
-            const Tabbars(),
+            SizedBox(
+              child: AutoSizeText(
+                "Projects",
+                style: GoogleFonts.poppins(
+                    fontSize: w > 706
+                        ? Get.width * .017
+                        : w > 506
+                            ? w * .03
+                            : w * .02,
+                    color:
+                        // ignore: unrelated_type_equality_checks
+                        ThemeMode.dark == true ? Colors.black : Colors.white),
+              ),
+            ),
+            Divider(
+              color: Colors.tealAccent,
+              indent: w * .44,
+              endIndent: Get.width * .44,
+              thickness: w * .0007,
+            ),
+            const Projects(),
             const Footor(),
           ],
         ),
