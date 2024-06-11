@@ -1,5 +1,4 @@
 import 'dart:html' as html;
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +12,7 @@ class DownloadController {
     html.AnchorElement anchorElement = html.AnchorElement(href: url);
     anchorElement.download = url;
     anchorElement.click();
+    anchorElement.download;
   }
 
   Future<void> contact(context) async {

@@ -141,7 +141,7 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                 clipper: WaveClipperOne(),
                 child: Container(
                   height:
-                      w > 706 && w < 1100 ? Get.height * .5 : Get.height * .6,
+                      w > 706 && w > 1100 ? Get.height * .5 : Get.height * .4,
                   // width: Get.width,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
@@ -189,7 +189,7 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                           right: Get.width * .03,
                                           left: Get.width * .03),
                                       child: SizedBox(
-                                        height: Get.height * .2,
+                                        height: Get.height * .1,
                                         child: AutoSizeText(
                                           '''I'm always learning and exploring new ways to push the boundaries of Flutter development. If you're looking for a skilled and enthusiastic developer to build your next amazing app, let's connect!''',
                                           style: GoogleFonts.poppins(
@@ -268,7 +268,7 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                           child: Container(
                                             width: w > 580
                                                 ? Get.width * .12
-                                                : Get.width * .3,
+                                                : Get.width * .2,
                                             height: w > 780
                                                 ? Get.width * .034
                                                 : Get.height * .06,
