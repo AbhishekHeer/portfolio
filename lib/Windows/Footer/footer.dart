@@ -55,6 +55,15 @@ class _FootorState extends State<Footor> with SingleTickerProviderStateMixin {
                 },
                 child: const Icon(FontAwesomeIcons.linkedinIn)),
             SizedBox(width: Get.width * .04, height: 0.0),
+            InkWell(
+                onTap: () {
+                  const message = "Hi, I am Abhishek. How Can I Help You ?";
+                  const mobileNumber = "+917888943030";
+                  var url = "whatsapp://send?phone=$mobileNumber&text=$message";
+                  launchUrl(Uri.parse(url));
+                },
+                child: const Icon(FontAwesomeIcons.whatsapp)),
+            SizedBox(width: Get.width * .04, height: 0.0),
           ],
         ),
         SizedBox(height: Get.height * .05),

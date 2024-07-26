@@ -36,7 +36,7 @@ migrate_working_dir/
 /windows/
 /linux/
 /test/
-
+/lib/const.dart
 
 # Symbolication related
 app.*.symbols

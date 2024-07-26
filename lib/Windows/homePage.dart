@@ -212,22 +212,22 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                             ? Get.height * .02
                                             : w > 580
                                                 ? Get.height * .01
-                                                : 0.0),
+                                                : Get.height * .02),
                                     Row(
                                       mainAxisAlignment: w > 580
                                           ? MainAxisAlignment.spaceAround
                                           : MainAxisAlignment.center,
                                       children: [
                                         InkWell(
-                                          onTap: () => DownloadController()
-                                              .download("Assets/CV/CV.pdf"),
+                                          onTap: () =>
+                                              DownloadController().download(),
                                           child: Container(
                                             width: w > 580
                                                 ? Get.width * .16
-                                                : Get.width * .3,
+                                                : Get.width * .35,
                                             height: w > 780
                                                 ? Get.width * .034
-                                                : Get.height * .06,
+                                                : Get.height * .05,
                                             decoration: BoxDecoration(
                                                 border: Border.all(
                                                     color: Colors.black,
@@ -267,11 +267,11 @@ class _HomeViewWindowState extends State<HomeViewWindow> {
                                               .contact(context),
                                           child: Container(
                                             width: w > 580
-                                                ? Get.width * .12
-                                                : Get.width * .2,
+                                                ? Get.width * .16
+                                                : Get.width * .35,
                                             height: w > 780
                                                 ? Get.width * .034
-                                                : Get.height * .06,
+                                                : Get.height * .05,
                                             decoration: BoxDecoration(
                                                 color: Colors.amber,
                                                 border: Border.all(

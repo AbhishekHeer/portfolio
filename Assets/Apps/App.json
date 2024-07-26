@@ -27,6 +27,13 @@
         "image" : "Assets/Images/chat.jpg", 
         "link" :"https://www.mediafire.com/file/fqhuz6vaqcx3bck/Chatty+1.2.0+.apk/file",
         "repo_link":"https://github.com/AbhishekHeer/Chatty-Using-Firebase-As-Backend"
+    },
+    {
+        "application" : "QR Code Generator And Scanner",
+        "Description":"The Simple Application in Android Phone using a Flutter. in this Appplication i used flutter qr code plugin for generate and scan QR code",
+        "image" : "Assets/Images/Qr.jpg", 
+        "link" :"https://www.mediafire.com/file/6jg2m1x3ekkevoz/QR+Gen.apk/file",
+        "repo_link":"https://github.com/AbhishekHeer/QR-Genrator"
     }
 ]
 }

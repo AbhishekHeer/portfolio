@@ -5,14 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/const.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DownloadController {
-  Future<void> download(url) async {
-    html.AnchorElement anchorElement = html.AnchorElement(href: url);
-    anchorElement.download = url;
-    anchorElement.click();
-    anchorElement.download;
+  Future<void> download() async {
+    final uri = Uri.parse(URL);
+    await launchUrl(uri);
   }
 
   Future<void> contact(context) async {
